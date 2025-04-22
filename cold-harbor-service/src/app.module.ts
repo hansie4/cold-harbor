@@ -6,9 +6,14 @@ import { Question } from './question.entity';
 import { Quiz } from './quiz.entity';
 import { QuizModule } from './quiz.module';
 import { QuestionModule } from './question.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '..', 'cold-harbor-ui', 'dist'),
+    }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'cold_harbor.db',
