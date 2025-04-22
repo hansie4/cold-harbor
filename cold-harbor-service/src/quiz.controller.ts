@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { QuizService } from './quiz.service';
 import { QuizForUI } from 'src';
 
-@Controller('quiz')
+@Controller('api/quiz')
 export class QuizController {
     constructor(private readonly quizService: QuizService) { }
 

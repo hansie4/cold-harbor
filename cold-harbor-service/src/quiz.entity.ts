@@ -11,13 +11,13 @@ export class Quiz {
     questions: string;
 
     @Column()
-    score: number
+    answers: string;
 
     static fromQuizForUI(quizFromUI: QuizForUI): Quiz {
         return {
             id: quizFromUI.id,
             questions: JSON.stringify(quizFromUI.questions),
-            score: quizFromUI.score
+            answers: JSON.stringify(quizFromUI.answers)
         }
     }
 
@@ -25,7 +25,7 @@ export class Quiz {
         return {
             id: quiz.id,
             questions: JSON.parse(quiz.questions),
-            score: quiz.score
+            answers: JSON.parse(quiz.answers)
         }
     }
 }

@@ -9,7 +9,7 @@ export interface QuizForUI {
     id: number
     questions: {
         question: QuestionForUI
-        passed: boolean
+        passed: boolean | null
     }[]
-    score: number
+    answers: { [key: number]: number[] }
 }
