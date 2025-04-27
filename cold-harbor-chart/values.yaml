@@ -108,7 +108,7 @@ volumes:
   - name: cold-harbor-db
     hostPath:
       path: /home/hans/cold-harbor-db
-      type: Directory
+      type: DirectoryOrCreate
   - name: cold-harbor-config
     configMap:
       name: cold-harbor-configmap
