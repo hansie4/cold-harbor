@@ -109,4 +109,5 @@ tolerations: []
 
 affinity: {}
 
-pathToDB: /data/cold-harbor-db/cold_harbor.db
+config:
+  pathToDB: /data/cold-harbor-db/cold_harbor.db
