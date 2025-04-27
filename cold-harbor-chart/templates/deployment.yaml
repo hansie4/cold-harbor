@@ -56,7 +56,6 @@ spec:
           resources:
             {{- toYaml . | nindent 12 }}
           {{- end }}
-          {{- with .Values.volumeMounts }}
           volumeMounts:
             - name: {{ include "cold-harbor-chart.name" . }}-db
               mountPath: /app/data
