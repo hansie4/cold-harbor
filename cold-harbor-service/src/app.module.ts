@@ -16,7 +16,7 @@ import { join } from 'path';
     }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: process.env.PATH_TO_DB ?? 'cold_harbor.db',
+      database: process.env.PATH_TO_DB ?? 'cold_harbor_data/cold_harbor.db',
       entities: [Question, Quiz],
       synchronize: true,
     }),

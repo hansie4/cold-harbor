@@ -18,7 +18,7 @@ const QuizQuestionCard = ({ question, answers, setAnswers, isReadOnly, correct }
                     </Box>
 
                     <Divider />
-                    <Typography>Answer Choices: </Typography>
+                    <Typography>Answer Choices({question.correctAnswers.length}): </Typography>
                     {
                         question.answerChoices.map((AC, I) => {
                             const checked = Boolean(answers[question.id]?.includes(I))
