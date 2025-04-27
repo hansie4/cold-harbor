@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  labels:
+    app: {{ .Chart.Name }}
+data:
+  PORT: {{ .Values.port }}
+  PATH_TO_DB: {{ .Values.pathToDb }}

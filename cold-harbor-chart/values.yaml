@@ -108,6 +108,9 @@ volumes:
   - name: cold-harbor-db
     hostPath:
       path: /mnt/data/cold-harbor-db
+  - name: cold-harbor-config
+    configMap:
+      name: {{ .Release.Name }}-configmap
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
@@ -119,3 +122,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+pathToDB: "cold_harbor_data/cold_harbor.db"
