@@ -107,7 +107,7 @@ autoscaling:
 volumes:
   - name: cold-harbor-db
     hostPath:
-      path: /home/hans/cold-harbor-db
+      path: /data/cold-harbor-db
       type: DirectoryOrCreate
   - name: cold-harbor-config
     configMap:
