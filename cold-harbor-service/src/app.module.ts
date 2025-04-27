@@ -9,6 +9,8 @@ import { QuestionModule } from './question.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
+console.log('PATH_TO_DB', process.env.PATH_TO_DB);
+
 @Module({
   imports: [
     ServeStaticModule.forRoot({
