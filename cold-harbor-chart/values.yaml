@@ -16,8 +16,8 @@ image:
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: []
 # This is to override the chart name.
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "cold-harbor"
+fullnameOverride: "cold-harbor"
 
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
@@ -107,7 +107,7 @@ autoscaling:
 volumes:
   - name: cold-harbor-db
     hostPath:
-      path: /mnt/cold-harbor-db
+      path: /home/hans/cold-harbor-db
       type: DirectoryOrCreate
   - name: cold-harbor-config
     configMap:
