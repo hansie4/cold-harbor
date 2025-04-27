@@ -108,6 +108,7 @@ volumes:
   - name: cold-harbor-db
     hostPath:
       path: /mnt/data/cold-harbor-db
+      type: DirectoryOrCreate
   - name: cold-harbor-config
     configMap:
       name: cold-harbor-configmap
