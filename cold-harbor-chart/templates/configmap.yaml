@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cold-harbor-configmap
+  name: {{ .Release.Name }}-configmap
   labels:
     app: {{ .Chart.Name }}
 data:
-  PORT: {{ .Values.port }}
-  PATH_TO_DB: {{ .Values.pathToDb }}
+  PORT: {{ .Values.port | quote }}
+  PATH_TO_DB: {{ .Values.pathToDb | quote }}
