@@ -107,7 +107,7 @@ autoscaling:
 volumes:
   - name: cold-harbor-db
     hostPath:
-      path: /mnt/data/cold-harbor-db
+      path: /mnt/cold-harbor-db
       type: DirectoryOrCreate
   - name: cold-harbor-config
     configMap:
@@ -116,7 +116,7 @@ volumes:
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
   - name: cold-harbor-db
-    mountPath: /app/cold_harbor_data
+    mountPath: /app/data
 
 nodeSelector: {}
 

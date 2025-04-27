@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: cold-harbor-configmap
   labels:
-    app: {{ .Chart.Name }}
+    {{- include "cold-harbor-chart.labels" . | nindent 4 }}
 data:
   PORT: {{ .Values.port | quote }}
   PATH_TO_DB: {{ .Values.pathToDb | quote }}
