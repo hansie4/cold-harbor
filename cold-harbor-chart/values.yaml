@@ -110,7 +110,7 @@ volumes:
       path: /mnt/data/cold-harbor-db
   - name: cold-harbor-config
     configMap:
-      name: {{ .Release.Name }}-configmap
+      name: cold-harbor-configmap
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:

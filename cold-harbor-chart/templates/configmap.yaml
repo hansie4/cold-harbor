@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Release.Name }}-configmap
+  name: cold-harbor-configmap
   labels:
     app: {{ .Chart.Name }}
 data:
