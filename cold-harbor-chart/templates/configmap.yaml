@@ -6,4 +6,4 @@ metadata:
     app: {{ .Chart.Name }}
 data:
   PORT: 3000
-  PATH_TO_DB: "cold_harbor_data/cold_harbor.db"
+  PATH_TO_DB: cold_harbor_data/cold_harbor.db

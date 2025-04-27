@@ -123,4 +123,4 @@ tolerations: []
 
 affinity: {}
 
-pathToDB: "cold_harbor_data/cold_harbor.db"
+pathToDB: cold_harbor_data/cold_harbor.db
