@@ -62,9 +62,6 @@ spec:
           {{- end }}
       {{- with .Values.volumes }}
       volumes:
-        - name: cold-harbor-config
-          configMap:
-          name: {{ .Release.Name }}-configmap
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}

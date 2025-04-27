@@ -109,6 +109,9 @@ volumes:
     hostPath:
       path: /mnt/data/cold-harbor-db
       type: DirectoryOrCreate
+  - name: cold-harbor-config
+    configMap:
+      name: cold-harbor-configmap
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
