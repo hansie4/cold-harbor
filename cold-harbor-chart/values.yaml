@@ -103,21 +103,6 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-# Additional volumes on the output Deployment definition.
-volumes:
-  - name: cold-harbor-db
-    hostPath:
-      path: /data/cold-harbor-db
-      type: DirectoryOrCreate
-  - name: cold-harbor-config
-    configMap:
-      name: cold-harbor-configmap
-
-# Additional volumeMounts on the output Deployment definition.
-volumeMounts:
-  - name: cold-harbor-db
-    mountPath: /app/data
-
 nodeSelector: {}
 
 tolerations: []

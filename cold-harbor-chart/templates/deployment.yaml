@@ -58,12 +58,16 @@ spec:
           {{- end }}
           {{- with .Values.volumeMounts }}
           volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
+            - name: {{ include "cold-harbor-chart.name" . }}-db
+              mountPath: /app/data
       volumes:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        - name: {{ include "cold-harbor-chart.name" . }}-db
+          hostPath:
+            path: /data/cold-harbor-db
+            type: DirectoryOrCreate
+        - name: {{ include "cold-harbor-chart.name" . }}-config
+          configMap:
+            name: {{ include "cold-harbor-chart.name" . }}-configmap
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

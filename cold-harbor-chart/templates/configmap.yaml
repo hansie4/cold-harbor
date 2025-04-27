@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cold-harbor-configmap
+  name: {{ include "cold-harbor-chart.name" . }}-configmap
   labels:
     {{- include "cold-harbor-chart.labels" . | nindent 4 }}
 data:
