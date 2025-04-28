@@ -11,6 +11,7 @@ const QuestionsPage = () => {
     const [questions, setQuestions] = useState<QuestionForUI[]>([])
     const [loading, setLoading] = useState(true)
     const [addDialogOpen, setAddDialogOpen] = useState(false)
+    const [randomQuestionValue, setRandomQuestionValue] = useState<number>(50)
 
     const { setCurrentQuizId, navigateToTab, selectedQuestions, setSelectedQuestions } = useContext(QuizContext)
 
@@ -74,6 +75,17 @@ const QuestionsPage = () => {
         return stringToFilter.includes(searchText)
     })
 
+    const selectRandom = () => {
+        const shuffled = questions
+            .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
+
+        const selected = shuffled.slice(0, randomQuestionValue)
+
+        setSelectedQuestions(selected)
+    }
+
     return (
         <Box width={"100%"} height={"100%"}>
             <QuestionAdditionModel open={addDialogOpen} close={() => setAddDialogOpen(false)} refresh={loadQuestions} />
@@ -82,13 +94,15 @@ const QuestionsPage = () => {
                     <Box display={"flex"}>
                         <Typography variant="h5">Question Bank ({loading ? "..." : `${questions.length}`})</Typography>
                         <Divider orientation="vertical" sx={{ ml: 2, mr: 2 }} />
-                        <TextField size="small" placeholder="Search..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-                        <Button onClick={() => selectedQuestions.length === questions.length ? setSelectedQuestions([]) : setSelectedQuestions(questions)}>{selectedQuestions.length === questions.length ? 'Unselect all' : 'Select all'}</Button>
+                        <TextField sx={{ mr: 2 }} size="small" placeholder="Search..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                        <input type="number" min={1} max={questions.length} value={randomQuestionValue} onChange={(e) => setRandomQuestionValue(parseInt(e.target.value))} />
+                        <Button variant="contained" onClick={selectRandom}>Select {randomQuestionValue} random</Button>
+                        <Button onClick={() => selectedQuestions.length === questions.length ? setSelectedQuestions([]) : setSelectedQuestions(questions)}>{selectedQuestions.length > 0 ? 'Unselect all' : 'Select all'}</Button>
                     </Box>
 
                     <ButtonGroup variant="contained">
                         <Button onClick={() => setAddDialogOpen(true)} disabled={addDialogOpen}>Add Question</Button>
-                        <Button disabled={selectedQuestions.length === 0} onClick={createNewQuiz}>Start Quiz</Button>
+                        <Button disabled={selectedQuestions.length === 0} onClick={createNewQuiz}>Start Quiz ({selectedQuestions.length})</Button>
                     </ButtonGroup>
                 </Box>
 
