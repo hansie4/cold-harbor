@@ -5,5 +5,5 @@ metadata:
   labels:
     {{- include "cold-harbor-chart.labels" . | nindent 4 }}
 data:
-  PORT: {{ .Values.port | quote }}
-  PATH_TO_DB: {{ .Values.config.pathToDb | quote }}
+  PORT: 3000
+  PATH_TO_DB: "/app/cold_harbor_data/cold_harbor.db"
