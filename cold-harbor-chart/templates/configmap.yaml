@@ -6,4 +6,3 @@ metadata:
     {{- include "cold-harbor-chart.labels" . | nindent 4 }}
 data:
   PATH_TO_DB: "/app/cold_harbor_data/cold_harbor.db"
-  PORT: 3000
