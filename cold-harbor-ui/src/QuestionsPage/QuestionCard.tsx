@@ -40,7 +40,7 @@ const QuestionCard = ({ question, toggleQuestionSelection, selected, refresh }: 
                     </Box>
 
                     <Divider />
-                    <Typography>Answer Choices: </Typography>
+                    {/* <Typography>Answer Choices: </Typography> */}
                     {
                         question.answerChoices.map((AC, I) => {
                             return (

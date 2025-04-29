@@ -5,8 +5,8 @@ import Checkbox from '@mui/material/Checkbox';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 
-const QuizQuestionCard = ({ question, answers, setAnswers, isReadOnly, correct }: {
-    question: QuestionForUI; answers: { [key: number]: number[] }; setAnswers: (e: any) => void; isReadOnly: boolean; correct?: boolean
+const QuizQuestionCard = ({ index, question, answers, setAnswers, isReadOnly, correct }: {
+    index: number, question: QuestionForUI; answers: { [key: number]: number[] }; setAnswers: (e: any) => void; isReadOnly: boolean; correct?: boolean
 }) => {
 
     return (
@@ -14,11 +14,11 @@ const QuizQuestionCard = ({ question, answers, setAnswers, isReadOnly, correct }
             <Box display={'flex'} width={'100%'}>
                 <Box width={'100%'}>
                     <Box display={'flex'} width={'100%'} justifyContent={'space-between'}>
-                        <Typography variant="h5">{correct === undefined ? null : correct ? <CheckCircleIcon color="success" /> : <CancelIcon color="error" />} #{question.id}. {question.questionString}</Typography>
+                        <Typography variant="h5">{correct === undefined ? null : correct ? <CheckCircleIcon color="success" /> : <CancelIcon color="error" />} #{index}. {question.questionString}</Typography>
                     </Box>
 
                     <Divider />
-                    <Typography>Answer Choices({question.correctAnswers.length}): </Typography>
+                    {/* <Typography>Answer Choices({question.correctAnswers.length}): </Typography> */}
                     {
                         question.answerChoices.map((AC, I) => {
                             const checked = Boolean(answers[question.id]?.includes(I))

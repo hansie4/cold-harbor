@@ -84,17 +84,17 @@ const QuizPage = () => {
                         isQuizComplete ? (<Stack spacing={2}>
                             <h4>Incorrect ({questionsToShow[0].length}):</h4>
                             {
-                                questionsToShow[0].map(Q => (Q as unknown as { question: QuestionForUI }).question).map(Q => <QuizQuestionCard key={Q.id} question={Q} answers={answers} setAnswers={setAnswers} isReadOnly={isQuizComplete} correct={false} />)
+                                questionsToShow[0].map(Q => (Q as unknown as { question: QuestionForUI }).question).map((Q, I) => <QuizQuestionCard index={I + 1} key={Q.id} question={Q} answers={answers} setAnswers={setAnswers} isReadOnly={isQuizComplete} correct={false} />)
                             }
                             <Divider sx={{ mt: 2, mb: 2 }} />
                             <h4>Correct ({questionsToShow[1].length}):</h4>
                             {
-                                questionsToShow[1].map(Q => (Q as unknown as { question: QuestionForUI }).question).map(Q => <QuizQuestionCard key={Q.id} question={Q} answers={answers} setAnswers={setAnswers} isReadOnly={isQuizComplete} correct={true} />)
+                                questionsToShow[1].map(Q => (Q as unknown as { question: QuestionForUI }).question).map((Q, I) => <QuizQuestionCard index={I + 1} key={Q.id} question={Q} answers={answers} setAnswers={setAnswers} isReadOnly={isQuizComplete} correct={true} />)
                             }
                         </Stack>)
                             : <Stack spacing={2}>
                                 {
-                                    questionsToShow?.map(Q => (Q as { question: QuestionForUI }).question).map(Q => <QuizQuestionCard key={Q.id} question={Q} answers={answers} setAnswers={setAnswers} isReadOnly={isQuizComplete} />)
+                                    questionsToShow?.map(Q => (Q as { question: QuestionForUI }).question).map((Q, I) => <QuizQuestionCard index={I + 1} key={Q.id} question={Q} answers={answers} setAnswers={setAnswers} isReadOnly={isQuizComplete} />)
                                 }
                             </Stack>
                     }
